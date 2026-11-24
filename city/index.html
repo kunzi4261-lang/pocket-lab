@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f2e9">
+  <meta name="description" content="用一段文字生成有电车、码头和天际线的像素城市，切换光线，带走一张 PNG。">
+  <title>像素港湾 · Pixel Harbor | Pocket Lab</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="city.css">
+</head>
+<body>
+  <header class="top">
+    <a class="home" href="../"><span aria-hidden="true">←</span> Pocket Lab</a>
+    <span lang="en">Pixel Harbor</span>
+  </header>
+  <main>
+    <div class="intro">
+      <h1>像素港湾<span aria-hidden="true">.</span></h1>
+      <p>从天际线到海边的电车，用一段文字生成你的港口明信片。</p>
+    </div>
+    <div class="workspace">
+      <figure>
+        <div class="frame"><canvas id="view" width="448" height="248" role="img" aria-label="种子生成的像素港口天际线">当前浏览器无法显示画布。</canvas></div>
+        <figcaption><span id="caption">HARBOUR-021</span><span>448 × 248 px</span></figcaption>
+      </figure>
+      <section class="panel" aria-label="城市生成设置">
+        <form id="seed-form">
+          <label for="seed">城市种子</label>
+          <div class="input-row">
+            <input id="seed" name="seed" maxlength="96" value="HARBOUR-021" spellcheck="false" autocomplete="off" dir="auto">
+            <button class="apply" type="submit">生成</button>
+          </div>
+          <p class="hint">同一段文字，会在这里遇见同一座城。</p>
+        </form>
+        <fieldset>
+          <legend>光线</legend>
+          <div class="moods">
+            <label><input type="radio" name="mood" value="day"><span>白昼</span></label>
+            <label><input type="radio" name="mood" value="dusk" checked><span>黄昏</span></label>
+            <label><input type="radio" name="mood" value="night"><span>入夜</span></label>
+          </div>
+        </fieldset>
+        <div class="actions">
+          <button type="button" class="primary" id="reroll"><span class="dice" aria-hidden="true">⚄</span> 换座城市</button>
+          <div class="secondary">
+            <button type="button" id="download">导出 PNG <span aria-hidden="true">↓</span></button>
+            <button type="button" id="share">复制链接 <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+        <p class="status" id="status" aria-live="polite"></p>
+        <input id="fallback" hidden readonly aria-label="可复制的分享链接">
+      </section>
+    </div>
+  </main>
+  <noscript><p>请启用 JavaScript 以生成像素城市。</p></noscript>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>

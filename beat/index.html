@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f1e9">
+  <meta name="description" content="一台可以边听边改的十六步鼓机。编排五种合成打击乐，分享鼓谱或导出循环 WAV。">
+  <title>拍格 Beat Press · Pocket Lab</title>
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="beat.css">
+</head>
+<body>
+  <main class="wrap">
+    <nav><a href="../"><span aria-hidden="true">←</span> Pocket Lab</a><button id="share" type="button">复制鼓谱链接 <span aria-hidden="true">↗</span></button></nav>
+    <header class="heading">
+      <div><h1 lang="en">Beat Press<span aria-hidden="true">.</span></h1><p>拍格 <i></i> 十六步鼓机</p></div>
+      <div class="motif" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+    </header>
+    <section class="machine" aria-label="鼓机">
+      <div class="transport">
+        <div class="screen">
+          <div class="screen-label"><span>循环波形</span><span aria-hidden="true" id="counter">01 / 16</span></div>
+          <div class="scope"><canvas width="720" height="80" id="wave" aria-label="当前小节的合成音频波形" role="img"></canvas><i id="needle" hidden></i></div>
+        </div>
+        <div class="tempo">
+          <label for="bpm">速度 <span>BPM</span></label>
+          <div><button id="slower" type="button" aria-label="减慢一拍">−</button><input type="number" inputmode="numeric" id="bpm" min="50" max="190" step="1" value="104"><button id="faster" type="button" aria-label="加快一拍">+</button></div>
+        </div>
+        <button type="button" id="play" class="play"><i aria-hidden="true"></i><span>播放</span></button>
+      </div>
+      <div class="sequence">
+        <div class="sequence-title"><h2>步进编排</h2><span class="measure">4/4 <b>·</b> 1/16</span>
+          <div class="pages" role="group" aria-label="切换八个步位"><button id="first" type="button" aria-pressed="true">01–08</button><button id="last" type="button" aria-pressed="false">09–16</button></div>
+        </div>
+        <p id="help" class="sr-only">用方向键在音色和步位间移动，按空格或回车切换鼓点。</p>
+        <div id="grid" aria-describedby="help"></div>
+      </div>
+      <div class="toolbar">
+        <div class="preset-tools"><label for="preset">鼓谱</label><select id="preset"></select><button type="button" id="shuffle">变奏 <span aria-hidden="true">⟳</span></button></div>
+        <button type="button" id="export" class="export">导出 WAV <span aria-hidden="true">↓</span></button>
+      </div>
+    </section>
+    <footer><span>点亮方格加入鼓点，播放时也能修改。</span><span>单声道 <b>·</b> 44.1 kHz</span></footer>
+    <p id="status" role="status" aria-live="polite"></p>
+    <div id="sharebox" hidden><label for="share-url">鼓谱链接</label><input id="share-url" readonly></div>
+    <noscript>请启用 JavaScript 以编排与播放鼓点。</noscript>
+  </main>
+  <script src="app.mjs" type="module"></script>
+</body>
+</html>

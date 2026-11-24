@@ -1,0 +1,75 @@
+:root {
+  color-scheme: light;
+  --paper: #f5f2e9;
+  --ink: #222722;
+  --muted: #686b65;
+  --rule: #b5b5a7;
+  --blue: #2544b9;
+  font-family: "Segoe UI", "Microsoft YaHei", system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+}
+* { box-sizing: border-box; }
+body { margin: 0 auto; width: min(1344px, 100%); padding: 0 clamp(18px, 4.5vw, 68px) 50px; }
+button, input { font: inherit; color: inherit; }
+button, .moods span { cursor: pointer; touch-action: manipulation; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.top {
+  display: flex; justify-content: space-between; align-items: center;
+  min-height: 67px; border-bottom: 1px solid var(--ink);
+  font: 500 .83rem/1.3 ui-monospace, "Cascadia Mono", monospace;
+}
+.home { text-decoration: none; font-weight: 700; padding: 10px 0; }
+.home:hover { color: var(--blue); }
+.home span { margin-right: .45rem; }
+.intro { margin: clamp(28px, 5vw, 75px) 0 clamp(20px, 2.8vw, 40px); }
+h1 { font-size: clamp(3.1rem, 6.8vw, 6.4rem); letter-spacing: -.078em; line-height: 1.05; margin: 0; font-weight: 850; }
+h1 span { color: var(--blue); margin-left: .04em; }
+.intro p { margin: 14px 0 0; font-size: clamp(.9rem,1.3vw,1.06rem); line-height: 1.7; color: #4e554e; }
+.workspace { display: grid; grid-template-columns: minmax(0, 1fr) minmax(237px, .36fr); gap: clamp(24px, 3.2vw, 48px); align-items: start; }
+figure { margin: 0; min-width: 0; }
+.frame { border: 1px solid var(--ink); background: #fdfbf3; padding: clamp(5px, .65vw, 10px); }
+canvas { display: block; width: 100%; height: auto; aspect-ratio: 448/248; image-rendering: pixelated; background: #78639c; }
+figcaption { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 11px 0; font: 500 .76rem/1.4 ui-monospace, monospace; color: #50564f; }
+figcaption span:first-child { overflow-wrap: anywhere; }
+figcaption span:last-child { white-space: nowrap; }
+.panel { border-top: 2px solid var(--ink); padding-top: 17px; }
+label[for], legend { display: block; font-size: .94rem; font-weight: 700; margin-bottom: 10px; padding: 0; }
+.input-row { display: flex; }
+.input-row input, #fallback { min-width: 0; width: 100%; border: 1px solid var(--ink); background: #fffdf5; border-radius: 0; font: .9rem/1.25 ui-monospace, monospace; padding: 11px 10px; }
+button { border: 1px solid var(--ink); border-radius: 0; background: transparent; font-weight: 650; }
+button:hover, .moods label:hover span { background: #e6e6da; }
+.apply { min-width: 56px; border-left: 0; font-size: .83rem; }
+.hint, .status { font-size: .78rem; line-height: 1.6; color: var(--muted); }
+.hint { margin: 6px 0 0; }
+fieldset { border: 0; padding: 0; margin: 23px 0 0; }
+.moods { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--ink); }
+.moods label { position: relative; }
+.moods label + label { border-left: 1px solid var(--ink); }
+.moods input { position: absolute; left: 50%; top: 50%; width: 1px; height: 1px; opacity: 0; }
+.moods span { display: block; text-align: center; font-size: .87rem; font-weight: 600; padding: 10px 2px; }
+.moods input:checked + span { color: white; background: var(--ink); }
+.moods input:focus-visible + span { outline: 3px solid var(--blue); outline-offset: 3px; }
+.actions { border-top: 1px solid var(--rule); padding-top: 20px; margin-top: 24px; }
+.primary { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; padding: 10px; border-color: var(--blue); color: white; background: var(--blue); }
+.primary:hover { background: #1f369e; }
+.dice { font: 1.4rem/1 system-ui, sans-serif; }
+.secondary { margin-top: 9px; display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 7px; }
+.secondary button { padding: 10px 4px; font-size: .8rem; }
+.status { margin: 7px 0 0; color: var(--blue); }
+#fallback { margin-top: 5px; }
+@media (max-width: 790px) {
+  .workspace { grid-template-columns: 1fr; gap: 11px; }
+  .panel { display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; }
+  fieldset { margin: 0; }
+  .actions, .status, #fallback { grid-column: 1 / -1; }
+  .actions { margin-top: 15px; padding-top: 15px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .secondary { margin: 0; }
+}
+@media (max-width: 510px) {
+  .top { min-height: 50px; }
+  .panel { display: block; padding-top: 14px; }
+  fieldset { margin-top: 15px; }
+  .actions { grid-template-columns: 1fr 1.45fr; }
+}

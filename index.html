@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f5ed">
+  <meta name="description" content="Pocket Lab 口袋实验室。用一串字符生成像素港湾，或者用十六步节奏机编一段鼓点。在浏览器里创作，导出 PNG 和 WAV。">
+  <title>Pocket Lab · 口袋实验室</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/landing.css">
+  <script type="module" src="assets/landing.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#experiments">跳到作品</a>
+  <div class="page">
+    <header class="masthead">
+      <div class="brand" lang="en"><span class="brand-mark" aria-hidden="true"></span>Pocket Lab</div>
+      <a class="source" href="https://github.com/kunzi4261-lang/pocket-lab">项目源码 <span aria-hidden="true">↗</span></a>
+    </header>
+    <main>
+      <div class="intro">
+        <h1>口袋实验室<span aria-hidden="true">.</span></h1>
+        <p>用种子造一座城，用十六步编一段鼓点。<br>在浏览器里玩，把喜欢的作品带走。</p>
+      </div>
+      <noscript><p>互动预览需要启用 JavaScript。下方链接可打开两个作品。</p></noscript>
+      <div id="experiments" class="catalog" tabindex="-1">
+        <article class="card city" aria-labelledby="city-title">
+          <div class="instrument">
+            <div class="city-frame">
+              <canvas id="city-preview" width="448" height="248" role="img" aria-label="种子 HARBOUR-021 生成的黄昏港湾"></canvas>
+            </div>
+            <div class="toolbar city-tools">
+              <span class="seed" title="城市种子">HARBOUR-021</span>
+              <div class="moods" role="group" aria-label="预览时段">
+                <button type="button" data-mood="day" aria-pressed="false">白天</button>
+                <button type="button" data-mood="dusk" aria-pressed="true">黄昏</button>
+                <button type="button" data-mood="night" aria-pressed="false">夜晚</button>
+              </div>
+            </div>
+          </div>
+          <div class="caption">
+            <div><h2 id="city-title"><a id="city-title-link" href="city/?seed=HARBOUR-021&amp;mood=dusk">像素港湾</a></h2>
+              <p>换一串字符，生成新的天际线。选好光线，导出 PNG。</p></div>
+            <a id="city-open" class="open" href="city/?seed=HARBOUR-021&amp;mood=dusk" aria-label="打开像素港湾"><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+        <article class="card beat" aria-labelledby="beat-title">
+          <div class="instrument">
+            <div class="beat-frame">
+              <div class="beat-readout" aria-hidden="true">
+                <div class="tempo"><strong id="bpm">104</strong><span>BPM</span></div>
+                <ul class="voices"></ul>
+              </div>
+              <canvas id="beat-preview" width="400" height="400" role="img" aria-label="五条同心音轨，每圈十六步。深色格为触发的鼓点。"></canvas>
+            </div>
+            <div class="toolbar beat-tools">
+              <span class="preset" id="preset-name">纸带放克</span>
+              <button type="button" class="listen" id="audition" aria-pressed="false"><span class="play-mark" aria-hidden="true"></span><span id="audition-label">试听一圈</span></button>
+            </div>
+          </div>
+          <div class="caption">
+            <div><h2 id="beat-title"><a href="beat/">拍格</a></h2>
+              <p>把五种打击乐排进十六步循环，导出自己的 WAV 鼓组片段。</p></div>
+            <a class="open" href="beat/" aria-label="打开拍格节奏机"><span aria-hidden="true">↗</span></a>
+          </div>
+        </article>
+      </div>
+      <p class="status" id="feedback" role="status"></p>
+    </main>
+    <footer><a href="https://github.com/kunzi4261-lang">@kunzi4261-lang <span aria-hidden="true">↗</span></a></footer>
+  </div>
+</body>
+</html>
